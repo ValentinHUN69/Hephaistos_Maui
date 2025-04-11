@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hephaistos_Maui.LoginPage"
+             Title="LoginPage">
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Frame BackgroundColor="White" Padding="30" CornerRadius="20"
+               HasShadow="True" WidthRequest="300">
+
+            <StackLayout Spacing="20" VerticalOptions="CenterAndExpand">
+                <!-- Felhasználónév mező -->
+                <Frame CornerRadius="10" BorderColor="Gray" Padding="5">
+                    <Entry x:Name="UsernameEntry" 
+                           Placeholder="Felhasználónév vagy email" 
+                           Keyboard="Email"
+                           BackgroundColor="Transparent"/>
+                </Frame>
+
+                <!-- Jelszó mező -->
+                <Frame CornerRadius="10" BorderColor="LightBlue" Padding="2">
+                    <Entry x:Name="PasswordEntry" 
+                           Placeholder="Jelszó" 
+                           IsPassword="True"
+                           BackgroundColor="White"/>
+                </Frame>
+
+                <!-- Maradjak bejelentkezve checkbox -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <CheckBox x:Name="StayLoggedInCheckBox" />
+                    <Label Text="Maradjak bejelentkezve?" VerticalOptions="Center" />
+                </StackLayout>
+
+                <!-- Bejelentkezés gomb -->
+                <Button Text="Bejelentkezés" 
+                        Clicked="OnLoginClicked" 
+                        BackgroundColor="#007AFF" 
+                        TextColor="White" />
+                
+                <Button Text="Regisztráció" 
+                        Clicked="OnRegisterClicked" 
+                        BackgroundColor="#007AFF" 
+                        TextColor="White" />            
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

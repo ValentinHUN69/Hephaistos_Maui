@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    
+    xmlns:models="clr-namespace:Hephaistos_Maui.Models"
+    x:Class="Hephaistos_Maui.MainPage"
+   
+    BackgroundColor="#f4f4f4">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        
+        <Grid Padding="10" BackgroundColor="#6200ee" >
+            <Label Text="Hephaistos" 
+                   FontSize="24" 
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+        </Grid>
+
+        
+        <Label Text="Fontos kártyák" FontSize="20" FontAttributes="Bold" />
+
+        <CollectionView ItemsSource="{Binding KartyaInfo}" Margin="0,0,0,10">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate >
+                    <Frame BackgroundColor="White" CornerRadius="15" Padding="15" HasShadow="True" Margin="0,5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Cim}" FontAttributes="Bold" FontSize="18" />
+                            <Label Text="{Binding Leiras}" FontSize="14" TextColor="Gray" />
+                            <Label Text="{Binding LinkSzoveg}" TextColor="#6200ee" FontSize="14" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

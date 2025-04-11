@@ -1,0 +1,55 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hephaistos_Maui.View.ManageUsersPage"
+             Title="Felhasználók kezelése">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <Label Text="Felhasználók kezelése" FontSize="24" />
+
+            <CollectionView ItemsSource="{Binding Users}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" Margin="5">
+                            <StackLayout>
+                                <Label Text="{Binding Username}" FontAttributes="Bold" />
+                                <Label Text="{Binding Email}" />
+                                <Label Text="{Binding Role}" />
+                                <Label Text="{Binding StartYear}" />
+                                <HorizontalStackLayout>
+                                    <Button Text="Szerkesztés" Clicked="OnEditUser" />
+                                    <Button Text="Törlés" Clicked="OnDeleteUser" BackgroundColor="Red" TextColor="White" />
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Szerkesztő popup -->
+            <StackLayout x:Name="EditPopup" IsVisible="False" Padding="10" BackgroundColor="#ffffff" >
+                <Label Text="Felhasználó szerkesztése" FontAttributes="Bold" FontSize="20" />
+                <Entry Placeholder="Felhasználónév" Text="{Binding SelectedUser.Username}" />
+                <Entry Placeholder="Email" Text="{Binding SelectedUser.Email}" />
+                <Entry Placeholder="Szerep" Text="{Binding SelectedUser.Role}" />
+                <Entry Placeholder="Megjegyzés" Text="{Binding SelectedUser.Note}" />
+                <Entry Placeholder="Bejegyzés Év" Keyboard="Numeric" Text="{Binding SelectedUser.StartYear}" />
+                <Entry Placeholder="Státusz" Text="{Binding SelectedUser.Status}" />
+                <Switch IsToggled="{Binding SelectedUser.Active}" />
+                <Picker Title="Egyetem"
+                        ItemsSource="{Binding Universities}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedUniversityId}"
+                        SelectedIndexChanged="OnUniversityChanged"/>
+                <Picker Title="Szak"
+                        ItemsSource="{Binding AvailableMajors}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedUser.MajorId}" />
+                <HorizontalStackLayout>
+                    <Button Text="Mentés" Clicked="OnSaveUser" />
+                    <Button Text="Mégse" Clicked="OnCancelEdit" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

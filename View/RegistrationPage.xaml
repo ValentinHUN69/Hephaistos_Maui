@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hephaistos_Maui.View.RegistrationPage"
+             Title="Regisztráció"
+             BackgroundColor="LightGray">
+
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Frame BackgroundColor="White" Padding="30" CornerRadius="20"
+               HasShadow="True" WidthRequest="300">
+
+            <StackLayout Spacing="20" VerticalOptions="CenterAndExpand">
+                
+                <Frame CornerRadius="10" BorderColor="Gray" Padding="5">
+                    <Entry x:Name="UsernameEntry" 
+                           Placeholder="Felhasználónév"
+                           BackgroundColor="Transparent"
+                           Text=" testuser"/>
+                </Frame>
+
+                
+                <Frame CornerRadius="10" BorderColor="Gray" Padding="5">
+                    <Entry x:Name="EmailEntry" 
+                           Placeholder="Email cím" 
+                           Keyboard="Email"
+                           BackgroundColor="Transparent"
+                           Text="testuser@example.com"/>
+                </Frame>
+
+                
+                <Frame CornerRadius="10" BorderColor="Gray" Padding="5">
+                    <Entry x:Name="PasswordEntry" 
+                           Placeholder="Jelszó" 
+                           IsPassword="True"
+                           BackgroundColor="Transparent"
+                            Text ="Test@1234"/>
+                </Frame>
+
+                
+                <Frame CornerRadius="10" BorderColor="Gray" Padding="5">
+                    <Entry x:Name="ConfirmPasswordEntry" 
+                           Placeholder="Jelszó megerősítése" 
+                           IsPassword="True"
+                           BackgroundColor="Transparent"
+                           Text ="Test@1234"/>
+                </Frame>
+
+                
+                    <Button Text="Regisztráció" 
+                    Clicked="OnRegisterClicked" 
+                    BackgroundColor="#007AFF" 
+                    TextColor="White" />
+                
+
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
+
